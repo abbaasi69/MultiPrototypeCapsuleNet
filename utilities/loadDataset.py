@@ -194,7 +194,7 @@ def loadDataset(dsname):
             path = os.path.join(path, p)
 
             I = Image.open(path)
-            I.thumbnail((image_size, image_size,3), Image.ANTIALIAS)
+            I.thumbnail((img_size, img_size,3), Image.ANTIALIAS)
             I = np.reshape(I, (1, img_size, img_size, 3))
             Train[cnt, :, :,:] = I
             Train_label[cnt] = 1
