@@ -130,7 +130,7 @@ def loadDataset(dsname):
         img_per_class_train = 11
         img_per_class_test = 4
         total_img = 1125
-        if True:
+        if False:
             Train = np.zeros(shape=(class_no * img_per_class_train, img_size, img_size))
             Test = np.zeros(shape=(class_no * img_per_class_test, img_size, img_size))
             Train_label = np.zeros(shape=(class_no * img_per_class_train))
