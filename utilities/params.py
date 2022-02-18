@@ -39,7 +39,14 @@ def getParamCaps(dsname):
         image_size2 = 28
         num_image_channel = 1
         checkpoint_path = './checkpoints/MNIST_CapsNet/'
-
+    if dsname == 'feret':
+        num_class = 2
+        image_size1 = 384
+        image_size2 = 384
+        num_image_channel = 3
+        checkpoint_path = './checkpoints/FERET_CapsNet/'
+        primary_cap_size1 = 12
+        primary_cap_size2 = 12
     if dsname == 'c-cube':
         num_class = 52
         image_size1 = 32
@@ -117,6 +124,15 @@ def getParamCaps_Competitve(dsname):
         image_size2 = 28
         num_image_channel = 1
         checkpoint_path = './checkpoints/MNIST_CapsNet_Competitive/'
+    if dsname == 'feret':
+        num_cluster_per_class=4
+        num_class = 2
+        image_size1 = 384
+        image_size2 = 384
+        num_image_channel = 3
+        checkpoint_path = './checkpoints/FERET_CapsNet_Competitive/'
+        primary_cap_size1 = 12
+        primary_cap_size2 = 12
     if dsname == 'c-cube':
         num_class = 52
         image_size1 = 32
@@ -200,6 +216,8 @@ def getBatchSize(dsname):
     if dsname == 'mnist':
         batchSize = 20
     if dsname == 'c-cube':
+        batchSize = 25
+    if dsname == 'feret':
         batchSize = 25
 
 
