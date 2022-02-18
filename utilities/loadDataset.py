@@ -174,7 +174,49 @@ def loadDataset(dsname):
             with open('./dataset/MCYT/DS_11_4', 'rb') as f:
                 Train, Train_label, Test, Test_label = pickle.load(f)
             print('Dataset loaded from file')
+    if dsname == 'feret':
+        img_size = 384
+        class_no = 2
+        num_male = 822
+        num_female = 654
+        
+        total_img = num_male + num_female
+        
+        Train = np.zeros(shape=(total_img, img_size, img_size))
+        Train_label = np.zeros(shape=(total_img))
+        list = os.listdir('./dataset/feret/Male/')
 
+        cnt = 0
+        path = './dataset/feret/Male/'
+        for p in list:
+            path = os.path.join(path, p)
+
+            I = plt.imread(path)
+            I = np.reshape(I, (1, img_size, img_size, 3))
+            Train[cnt, :, :,:] = I
+            Train_label[cnt] = 1
+            cnt = cnt + 1
+            
+        path = './dataset/feret/Female/'
+        for p in list:
+            path = os.path.join(path, p)
+
+            I = plt.imread(path)
+            I = np.reshape(I, (1, img_size, img_size, 3))
+            Train[cnt, :, :,:] = I
+            Train_label[cnt] = 2
+            cnt = cnt + 1
+
+
+        Train = (255.0 - Train) / 255.0
+        from sklearn.model_selection import train_test_split
+        Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
+        
+
+        print(Train.max())
+        print(Train.min())
+        print(Train.mean())
+            
     if dsname == 'cedar':
         image_size = 64
         if True:
