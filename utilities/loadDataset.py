@@ -183,7 +183,7 @@ def loadDataset(dsname):
         
         total_img = num_male + num_female
         
-        Train = np.zeros(shape=(total_img, img_size, img_size))
+        Train = np.zeros(shape=(total_img, img_size, img_size,3))
         Train_label = np.zeros(shape=(total_img))
         list = os.listdir('./dataset/feret/Male/')
 
