@@ -217,6 +217,10 @@ def loadDataset(dsname):
         from sklearn.model_selection import train_test_split
         Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
         
+        Train = (Train) / 255.0
+        Test = (Test) / 255.0
+        Train_label -= 1
+        Test_label -= 1
 
 #         print(Train.max())
 #         print(Train.min())
