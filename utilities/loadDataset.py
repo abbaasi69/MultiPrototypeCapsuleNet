@@ -176,6 +176,7 @@ def loadDataset(dsname):
                 Train, Train_label, Test, Test_label = pickle.load(f)
             print('Dataset loaded from file')
     if dsname == 'feret':
+        from PIL import Image
         img_size = 64
         class_no = 2
         num_male = 822
