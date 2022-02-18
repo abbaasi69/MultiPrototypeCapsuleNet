@@ -188,8 +188,8 @@ def loadDataset(dsname):
         list = os.listdir('./dataset/feret/Male/')
 
         cnt = 0
-        path = './dataset/feret/Male/'
         for p in list:
+            path = './dataset/feret/Male/'
             path = os.path.join(path, p)
 
             I = plt.imread(path)
@@ -198,8 +198,8 @@ def loadDataset(dsname):
             Train_label[cnt] = 1
             cnt = cnt + 1
             
-        path = './dataset/feret/Female/'
         for p in list:
+            path = './dataset/feret/Female/'
             path = os.path.join(path, p)
 
             I = plt.imread(path)
