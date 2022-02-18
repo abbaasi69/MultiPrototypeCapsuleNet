@@ -127,8 +127,8 @@ def getParamCaps_Competitve(dsname):
     if dsname == 'feret':
         num_cluster_per_class=4
         num_class = 2
-        image_size1 = 384
-        image_size2 = 384
+        image_size1 = 64
+        image_size2 = 64
         num_image_channel = 3
         checkpoint_path = './checkpoints/FERET_CapsNet_Competitive/'
         primary_cap_size1 = 12
