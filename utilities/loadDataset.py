@@ -176,7 +176,7 @@ def loadDataset(dsname):
                 Train, Train_label, Test, Test_label = pickle.load(f)
             print('Dataset loaded from file')
     if dsname == 'feret':
-        img_size = 384
+        img_size = 64
         class_no = 2
         num_male = 822
         num_female = 654
@@ -192,7 +192,8 @@ def loadDataset(dsname):
             path = './dataset/feret/Male/'
             path = os.path.join(path, p)
 
-            I = plt.imread(path)
+            I = Image.open(path)
+            I.thumbnail((image_size, image_size,3), Image.ANTIALIAS)
             I = np.reshape(I, (1, img_size, img_size, 3))
             Train[cnt, :, :,:] = I
             Train_label[cnt] = 1
