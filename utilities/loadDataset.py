@@ -2,6 +2,7 @@ import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
 
 def rg2gray(rgb):
     return np.dot(rgb[...,:3],[0.2989,0.5870,0.1140])
