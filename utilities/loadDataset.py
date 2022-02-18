@@ -210,14 +210,14 @@ def loadDataset(dsname):
             cnt = cnt + 1
 
 
-        Train = (255.0 - Train) / 255.0
+#         Train = (255.0 - Train) / 255.0
         from sklearn.model_selection import train_test_split
         Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
         
 
-        print(Train.max())
-        print(Train.min())
-        print(Train.mean())
+#         print(Train.max())
+#         print(Train.min())
+#         print(Train.mean())
             
     if dsname == 'cedar':
         image_size = 64
