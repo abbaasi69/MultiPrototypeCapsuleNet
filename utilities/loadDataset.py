@@ -198,6 +198,7 @@ def loadDataset(dsname):
             Train_label[cnt] = 1
             cnt = cnt + 1
             
+        list = os.listdir('./dataset/feret/Female/')    
         for p in list:
             path = './dataset/feret/Female/'
             path = os.path.join(path, p)
