@@ -228,7 +228,7 @@ def loadDataset(dsname):
             
     if dsname == 'cedar':
         image_size = 64
-        if True:
+        if False:
             from PIL import Image
             Train = np.zeros(shape=(880, image_size, image_size))
             for i in range(880):
