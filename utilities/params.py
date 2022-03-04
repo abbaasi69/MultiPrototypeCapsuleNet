@@ -33,6 +33,15 @@ def getParamCaps(dsname):
     init_sigma, caps1_n_dims, caps2_n_dims, caps1_n_maps, \
     primary_cap_size1, primary_cap_size2,n_hidden1,n_hidden2 = getParamGeneral()
 
+    if dsname == 'feret_feature':
+        num_class = 2
+        image_size1 = 28
+        image_size2 = 28
+        num_image_channel = 128
+        checkpoint_path = './checkpoints/FERET_FEATURE_CapsNet/'
+        primary_cap_size1 = 6
+        primary_cap_size2 = 6
+        
     if dsname == 'mnist':
         num_class = 10
         image_size1 = 28
@@ -117,6 +126,16 @@ def getParamCaps_Competitve(dsname):
     init_sigma, caps1_n_dims, caps2_n_dims, caps1_n_maps, \
     primary_cap_size1, primary_cap_size2,n_hidden1,n_hidden2 = getParamGeneral()
 
+    if dsname == 'feret_feature':
+        num_cluster_per_class=4
+        num_class = 2
+        image_size1 = 28
+        image_size2 = 28
+        num_image_channel = 128
+        checkpoint_path = './checkpoints/FERET_FEATURE_CapsNet_Competitive/'
+        primary_cap_size1 = 6
+        primary_cap_size2 = 6
+        
     if dsname == 'mnist':
         num_cluster_per_class=6
         num_class = 10
