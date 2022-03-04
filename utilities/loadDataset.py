@@ -8,6 +8,36 @@ def rg2gray(rgb):
     return np.dot(rgb[...,:3],[0.2989,0.5870,0.1140])
 
 def loadDataset(dsname):
+    if dsname == 'feret_feature':
+        img_size = 28
+        class_no = 2
+        num_male = 822
+        num_female = 654
+        n_channel = 128
+        
+        total_img = num_male + num_female
+        
+        Train = np.zeros(shape=(total_img, img_size, img_size,n_channel))
+        Train_label = np.zeros(shape=(total_img))
+        list = os.listdir('/content/drive/MyDrive/Checkpoints/FERET/Male/')
+
+        cnt = 0
+        for p in list:
+            path = '/content/drive/MyDrive/Checkpoints/FERET/Male/'
+            path = os.path.join(path, p)
+            with open(path, 'rb') as f:
+                Train[cnt,:,:,:] = pickle.load(f)   
+            Train_label[cnt] = 0
+            cnt = cnt + 1
+            
+        for p in list:
+            path = '/content/drive/MyDrive/Checkpoints/FERET/Female/'
+            path = os.path.join(path, p)
+            with open(path, 'rb') as f:
+                Train[cnt,:,:,:] = pickle.load(f)   
+            Train_label[cnt] = 1
+            cnt = cnt + 1
+            
     if dsname == 'cifar10':
         from utilities.load_cifar10 import load_CIFAR10
 
