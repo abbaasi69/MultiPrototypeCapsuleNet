@@ -30,6 +30,7 @@ def loadDataset(dsname):
             Train_label[cnt] = 0
             cnt = cnt + 1
             
+        list = os.listdir('/content/drive/MyDrive/Checkpoints/FERET/Female/')
         for p in list:
             path = '/content/drive/MyDrive/Checkpoints/FERET/Female/'
             path = os.path.join(path, p)
