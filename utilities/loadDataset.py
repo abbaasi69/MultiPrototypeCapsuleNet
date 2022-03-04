@@ -39,6 +39,8 @@ def loadDataset(dsname):
             Train_label[cnt] = 1
             cnt = cnt + 1
             
+        from sklearn.model_selection import train_test_split
+        Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
     if dsname == 'cifar10':
         from utilities.load_cifar10 import load_CIFAR10
 
