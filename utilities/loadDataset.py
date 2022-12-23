@@ -254,7 +254,6 @@ def loadDataset(dsname):
         Test = (Test) / 255.0
         Train_label -= 1
         Test_label -= 1
-
 #         print(Train.max())
 #         print(Train.min())
 #         print(Train.mean())
@@ -263,14 +262,10 @@ def loadDataset(dsname):
         img_size = 64
         class_no = 2
         num_per_class = 600
-        
-        
         total_img = num_per_class//2
-        
         Train = np.zeros(shape=(total_img, img_size, img_size,3))
         Train_label = np.zeros(shape=(total_img))
         list = os.listdir('./dataset/toy_man/rectangle_man/')
-
         cnt = 0
         for p in list:
             path = './dataset/toy_man/rectangle_man/'
@@ -294,14 +289,9 @@ def loadDataset(dsname):
             Train[cnt, :, :,:] = I
             Train_label[cnt] = 2
             cnt = cnt + 1
-
-
         Train = (1 - Train)
         from sklearn.model_selection import train_test_split
         Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
-        
-#         Train = (Train) / 255.0
-#         Test = (Test) / 255.0
         Train_label -= 1
         Test_label -= 1
     if dsname == 'cedar':
