@@ -295,6 +295,45 @@ def loadDataset(dsname):
         Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
         Train_label -= 1
         Test_label -= 1
+    if dsname == 'toy_man_original_size':
+        from PIL import Image
+        img_size = 300
+        class_no = 2
+        num_per_class = 600
+        total_img = num_per_class*2
+        Train = np.zeros(shape=(total_img, img_size, img_size,3))
+        Train_label = np.zeros(shape=(total_img))
+        list = os.listdir('./dataset/toy_man/rectangle_man/')
+        cnt = 0
+        for p in list:
+            path = './dataset/toy_man/rectangle_man/'
+            path = os.path.join(path, p)
+
+            I = Image.open(path)
+#             I.thumbnail((img_size, img_size), Image.ANTIALIAS)
+            I = np.reshape(I, (1, img_size, img_size, 3))
+            Train[cnt, :, :,:] = I
+            Train_label[cnt] = 1
+            cnt = cnt + 1
+            
+        list = os.listdir('./dataset/toy_man/circle_man/')    
+        for p in list:
+            path = './dataset/toy_man/circle_man/'
+            path = os.path.join(path, p)
+
+            I = Image.open(path)
+#             I.thumbnail((img_size, img_size), Image.ANTIALIAS)
+            I = np.reshape(I, (1, img_size, img_size, 3))
+            Train[cnt, :, :,:] = I
+            Train_label[cnt] = 2
+            cnt = cnt + 1
+            
+#         Train = (255.0 - Train) / 255.0
+        from sklearn.model_selection import train_test_split
+        Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
+        Train_label -= 1
+        Test_label -= 1
+
     if dsname == 'cedar':
         image_size = 64
         if False:
