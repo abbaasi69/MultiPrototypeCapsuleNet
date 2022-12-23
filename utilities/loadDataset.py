@@ -258,7 +258,7 @@ def loadDataset(dsname):
 #         print(Train.max())
 #         print(Train.min())
 #         print(Train.mean())
-if dsname == 'toy_man':
+    if dsname == 'toy_man':
         from PIL import Image
         img_size = 64
         class_no = 2
