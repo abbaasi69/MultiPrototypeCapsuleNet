@@ -262,7 +262,7 @@ def loadDataset(dsname):
         img_size = 64
         class_no = 2
         num_per_class = 600
-        total_img = num_per_class//2
+        total_img = num_per_class*2
         Train = np.zeros(shape=(total_img, img_size, img_size,3))
         Train_label = np.zeros(shape=(total_img))
         list = os.listdir('./dataset/toy_man/rectangle_man/')
