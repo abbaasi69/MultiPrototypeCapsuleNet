@@ -289,7 +289,8 @@ def loadDataset(dsname):
             Train[cnt, :, :,:] = I
             Train_label[cnt] = 2
             cnt = cnt + 1
-        Train = (1 - Train)
+            
+        Train = (255.0 - Train) / 255.0
         from sklearn.model_selection import train_test_split
         Train, Test, Train_label, Test_label = train_test_split(Train, Train_label, test_size=0.33, random_state=42)
         Train_label -= 1
