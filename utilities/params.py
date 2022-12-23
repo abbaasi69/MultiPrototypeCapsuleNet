@@ -56,6 +56,14 @@ def getParamCaps(dsname):
         checkpoint_path = './checkpoints/FERET_CapsNet/'
         primary_cap_size1 = 12
         primary_cap_size2 = 12
+    if dsname == 'toy_man':
+        num_class = 2
+        image_size1 = 64
+        image_size2 = 64
+        num_image_channel = 3
+        checkpoint_path = './checkpoints/Toy_man_CapsNet/'
+        primary_cap_size1 = 12
+        primary_cap_size2 = 12
     if dsname == 'c-cube':
         num_class = 52
         image_size1 = 32
