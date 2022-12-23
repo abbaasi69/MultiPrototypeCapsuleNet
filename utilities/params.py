@@ -41,7 +41,6 @@ def getParamCaps(dsname):
         checkpoint_path = './checkpoints/FERET_FEATURE_CapsNet/'
         primary_cap_size1 = 6
         primary_cap_size2 = 6
-        
     if dsname == 'mnist':
         num_class = 10
         image_size1 = 28
@@ -73,14 +72,12 @@ def getParamCaps(dsname):
         primary_cap_size1 = 7
         primary_cap_size2 = 7
         lambda_ = 0.05
-
     if dsname == 'cifar10':
         num_class = 10
         image_size1 = 32
         image_size2 = 32
         num_image_channel = 3
         checkpoint_path = './checkpoints/CIFAR10_CapsNet/'
-
     if dsname == 'UTSig':
         num_class = 115
         image_size1 = 64
@@ -90,7 +87,6 @@ def getParamCaps(dsname):
         primary_cap_size1 = 12
         primary_cap_size2 = 12
         lambda_ = 0.02
-
     if dsname == 'MCYT75':
         num_class = 75
         image_size1 = 64
@@ -100,7 +96,6 @@ def getParamCaps(dsname):
         primary_cap_size1 = 12
         primary_cap_size2 = 12
         lambda_ = 0.05
-
     if dsname == 'cedar':
         num_class = 55
         image_size1 = 64
@@ -141,6 +136,15 @@ def getParamCaps_Competitve(dsname):
         image_size2 = 28
         num_image_channel = 128
         checkpoint_path = './checkpoints/FERET_FEATURE_CapsNet_Competitive/'
+        primary_cap_size1 = 6
+        primary_cap_size2 = 6
+    if dsname == 'toy_man':
+        num_cluster_per_class=3
+        num_class = 2
+        image_size1 = 64
+        image_size2 = 64
+        num_image_channel = 3
+        checkpoint_path = './checkpoints/Toyman_CapsNet_Competitive/'
         primary_cap_size1 = 6
         primary_cap_size2 = 6
         
@@ -246,6 +250,8 @@ def getBatchSize(dsname):
         batchSize = 25
     if dsname == 'feret':
         batchSize = 25
+    if dsname == 'toy_man':
+        batchSize = 32
 
 
     return batchSize
@@ -306,7 +312,6 @@ def getParamCaps_Competitve_reduce(dsname):
         primary_cap_size2 = 12
         lambda_ = 0.02
         num_cluster_per_class = 3
-
     if dsname == 'cedar':
         num_class = 55
         image_size1 = 64
@@ -318,7 +323,17 @@ def getParamCaps_Competitve_reduce(dsname):
         lambda_ = 0.05
         num_cluster_per_class = 2
         caps1_n_maps = 32
-
+    if dsname == 'toy_man':
+        num_class = 2
+        image_size1 = 64
+        image_size2 = 64
+        num_image_channel = 3
+        checkpoint_path = './checkpoints/Toyman_CapsNet_Competitive/'
+        primary_cap_size1 = 12
+        primary_cap_size2 = 12
+        lambda_ = 0.05
+        num_cluster_per_class = 3
+        caps1_n_maps = 32
     if dsname == 'SVHN':
         num_class = 10
         image_size1 = 32
